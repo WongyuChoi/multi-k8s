@@ -1,0 +1,17 @@
+# 1. locate the json key file from GCloud or Azure, on the directory
+# DO NOT install alpine because it lacks dependencies
+docker run -it -v $(pwd):/app ruby:2.3 sh
+
+gem install travis --no-rdoc --no-ri
+
+gem install travis
+
+
+## when having iv undefined error, use --pro
+travis login --pro 
+
+# copy json file to the volumed directory, so we can use it in the container
+
+
+## when having iv undefined error, use -r USERNAME/REPO --pro
+travis encrypt-file service-account.json 
